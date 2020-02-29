@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Trigger Rally
+Comment=Fast-paced 3D single-player rally racing game
+Exec=trigger-rally
+Icon=trigger-rally
+Terminal=false
+Categories=Game;ActionGame;
