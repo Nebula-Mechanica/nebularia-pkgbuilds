@@ -1,5 +1,4 @@
-# Maintainer: Nebula Mechanica
-# Contributor: William Grieshaber <me@zee.li>
+# Maintainer: William Grieshaber <me@zee.li>
 # Contributor: Joao Cordeiro <jlcordeiro at gmail dot com>
 # Contributor: Joekey joekey1@gmail.com
 pkgname=trigger-rally
@@ -13,17 +12,17 @@ conflicts=()
 depends=('sdl_image' 'physfs' 'freeglut' 'freealut' 'glu' 'xdg-utils' 'tinyxml2')
 makedepends=('ftjam' 'glew' 'sdl_mixer')
 source=(https://downloads.sourceforge.net/project/$pkgname/trigger-0.6.6.1/$pkgname-$pkgver.tar.gz
-        $pkgname.png
-        $pkgname.desktop)
+		$pkgname.png
+		$pkgname.desktop)
 sha512sums=('feed805858ef63907bb10088761f1219b22fe55ead268511ef73b18aa0f18d79e87d4e2cbfb76361b1dec3949b59464af33efe31e81f06ae7e163430f3336669'
-            '09867405b809e1856d222949dcc81f897eecb87e270cceaca8fd33745ce38bfb52b0a0cb6b12fe90cd844ade92f77b79f803ed8d7c65b59af6f58a89d176f191'
-            '528eff2f0fd24942b2ecb4bd6d4bd5771039447d8843c9a81a2c5f4a886caffa964f1bd897389c9832e0f0b62118a8c7c899197c10434409dc2a3f2a403eefb8')
+			'09867405b809e1856d222949dcc81f897eecb87e270cceaca8fd33745ce38bfb52b0a0cb6b12fe90cd844ade92f77b79f803ed8d7c65b59af6f58a89d176f191'
+			'528eff2f0fd24942b2ecb4bd6d4bd5771039447d8843c9a81a2c5f4a886caffa964f1bd897389c9832e0f0b62118a8c7c899197c10434409dc2a3f2a403eefb8')
 
 build() {
 
-    cd "$srcdir"/$pkgname-$pkgver/src
-    
-    prefix=$pkgdir/usr make
+	cd "$srcdir"/$pkgname-$pkgver/src
+	
+	prefix=$pkgdir/usr make
 
 }
 
@@ -31,10 +30,10 @@ package() {
 
 	cd "$srcdir"/$pkgname-$pkgver/src
 	prefix=$pkgdir/usr make install
-    mkdir $pkgdir/usr/bin
-    mv $pkgdir/usr/games/* $pkgdir/usr/bin/
-    rmdir $pkgdir/usr/games
+	mkdir $pkgdir/usr/bin
+	mv $pkgdir/usr/games/* $pkgdir/usr/bin/
+	rmdir $pkgdir/usr/games
 
-    install -Dm644 $srcdir/$pkgname.desktop $pkgdir/usr/share/applications/$pkgname.desktop
-    install -Dm644 $srcdir/$pkgname.png $pkgdir/usr/share/pixmaps/$pkgname.png
+	install -Dm644 $srcdir/$pkgname.desktop $pkgdir/usr/share/applications/$pkgname.desktop
+	install -Dm644 $srcdir/$pkgname.png $pkgdir/usr/share/pixmaps/$pkgname.png
 }
